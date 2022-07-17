@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package main;
 
-/**
- *
- * @author 99470
- */
+import bean.Student;
+import util.InputUtil;
+import util.StudentUtil;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        int menu = InputUtil.requireNumber("What do you want to do?"
+                + "\n1. Register Student "
+                + "\n2. Show all students"
+                + "\n3. Find Students"
+                + "\n4. Update Student");
+        if (menu == 1) {
+            StudentUtil.registerStudents();
+        }
+
     }
-    
+
 }
