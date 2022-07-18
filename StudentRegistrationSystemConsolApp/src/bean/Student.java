@@ -7,8 +7,6 @@ public class Student {
     private int age;
     private String className;
 
-    
-    
     public Student() {
     }
 
@@ -51,5 +49,8 @@ public class Student {
         this.className = className;
     }
 
+    public String getFullInfo() {
+        return this.getName() + " " + this.getSurname() + " " + this.getAge() + " " + this.getClassName();
+    }
 
 }
