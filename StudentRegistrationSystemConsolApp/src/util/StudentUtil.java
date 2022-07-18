@@ -14,13 +14,13 @@ import main.Config;
 public class StudentUtil {
 
     public static Student fillStudent() {
-        String name = InputUtil.requireText("Enter name");
+        String name = MenuUtil.requireName();
 
-        String surname = InputUtil.requireText("Enter surname");
+        String surname = MenuUtil.requireSurname();
 
-        int age = InputUtil.requireNumber("Enter age");
+        int age = MenuUtil.requireAge();
 
-        String className = InputUtil.requireText("Enter classname");
+        String className = MenuUtil.requireClassName();
 
         Student students = new Student(name, surname, age, className);
         return students;
@@ -46,7 +46,7 @@ public class StudentUtil {
             Config.students[i] = StudentUtil.fillStudent();
 
         }
-        System.out.println("Registration completed succesfully");
+        MenuUtil.showSuccessOpMessage();
         printAllRegisteredStudents();
     }
 
@@ -85,17 +85,17 @@ public class StudentUtil {
         Student student = Config.students[index - 1];
         String params = InputUtil.requireText("Neleri deyismek isteyirsiniz,Meselen:'name','surname'");
         if (params.contains("'name'")) {
-            student.setName(InputUtil.requireText("name"));
+            student.setName(MenuUtil.requireName());
         }
 
         if (params.contains("'surname'")) {
-            student.setSurname(InputUtil.requireText("surname"));
+            student.setSurname(MenuUtil.requireSurname());
         }
         if (params.contains("'classname'")) {
-            student.setClassName(InputUtil.requireText("classname"));
+            student.setClassName(MenuUtil.requireClassName());
         }
         if (params.contains("'age'")) {
-            student.setAge(InputUtil.requireNumber("age"));
+            student.setAge(MenuUtil.requireAge());
         }
     }
 
@@ -108,21 +108,21 @@ public class StudentUtil {
     public static void updateStudentWithSplit() {
         int index = InputUtil.requireNumber("Nechenci adamda deyisiklik etmek istiyirsiniz?");
         Student student = Config.students[index - 1];
-        String params = InputUtil.requireText("Neleri deyismek isteyirsiniz,Meselen:'name','surname'");
+        String params = InputUtil.requireText("Neleri deyismek isteyirsiniz,Meselen:name,surname");
         String[] parameters = params.split(",");
         for (int i = 0; i < parameters.length; i++) {
             if (parameters[i].equalsIgnoreCase("name")) {
-                student.setName(InputUtil.requireText("name"));
+                student.setName(MenuUtil.requireName());
             }
 
             if (parameters[i].equalsIgnoreCase("surname")) {
-                student.setSurname(InputUtil.requireText("surname"));
+                student.setSurname(MenuUtil.requireSurname());
             }
             if (parameters[i].equalsIgnoreCase("classname")) {
-                student.setClassName(InputUtil.requireText("classname"));
+                student.setClassName(MenuUtil.requireClassName());
             }
             if (parameters[i].equalsIgnoreCase("age")) {
-                student.setAge(InputUtil.requireNumber("age"));
+                student.setAge(MenuUtil.requireAge());
             }
         }
     }
